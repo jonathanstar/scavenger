@@ -5,8 +5,8 @@ class CreateClues < ActiveRecord::Migration
       t.integer :clue_number, null: false
       t.integer :clue_points, null: false
       t.string :clue_content, null: false
-      t.decimal :latitude, null: false
-      t.decimal :longitude, null: false
+      t.decimal :latitude
+      t.decimal :longitude
       t.timestamps null: false
     end
   end

@@ -1,7 +1,33 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+user1 = User.create!(username: "lawson", password: "password", email: "email@sample.com")
+user2 = User.create!(username: "mike", password: "password", email: "email2@sample.com")
+user3 = User.create!(username: "tom", password: "password", email: "email3@sample.com")
+
+hunt1 = Hunt.create!(creator: user1, length_in_miles: 500, area_in_miles: 800)
+hunt2 = Hunt.create!(creator: user1, length_in_miles: 510, area_in_miles: 900)
+hunt3 = Hunt.create!(creator: user2, length_in_miles: 520, area_in_miles: 700)
+hunt4 = Hunt.create!(creator: user3, length_in_miles: 530, area_in_miles: 600)
+
+clue1 = Clue.create!(hunt: hunt1, clue_number: 1, clue_points: 100, clue_content: "This is a clue")
+clue2 = Clue.create!(hunt: hunt1, clue_number: 2, clue_points: 200, clue_content: "This is a second clue")
+clue3 = Clue.create!(hunt: hunt1, clue_number: 3, clue_points: 300, clue_content: "This is a third clue")
+clue4 = Clue.create!(hunt: hunt2, clue_number: 1, clue_points: 100, clue_content: "This is a clue")
+clue5 = Clue.create!(hunt: hunt2, clue_number: 2, clue_points: 200, clue_content: "This is a 2rd clue")
+clue6 = Clue.create!(hunt: hunt2, clue_number: 3, clue_points: 300, clue_content: "This is a 3rd clue")
+clue7 = Clue.create!(hunt: hunt3, clue_number: 1, clue_points: 100, clue_content: "This is another clue")
+clue8 = Clue.create!(hunt: hunt4, clue_number: 1, clue_points: 100, clue_content: "This is yet another clue")
+
+huntplayer1 = HuntPlayer.create!(player: user1, hunt: hunt1)
+huntplayer2 = HuntPlayer.create!(player: user2, hunt: hunt2)
+huntplayer3 = HuntPlayer.create!(player: user3, hunt: hunt3)
+
+image1 = Image.create!(hunt: hunt1, image_url: "link")
+image2 = Image.create!(hunt: hunt2, image_url: "another link")
+
+clueimage1 = ClueImage.create!(image: image1, clue: clue1)
+clueimage2 = ClueImage.create!(image: image1, clue: clue2)
+clueimage3 = ClueImage.create!(image: image1, clue: clue3)
+clueimage4 = ClueImage.create!(image: image1, clue: clue4)
+clueimage5 = ClueImage.create!(image: image2, clue: clue5)
+clueimage6 = ClueImage.create!(image: image2, clue: clue6)
+clueimage7 = ClueImage.create!(image: image2, clue: clue7)
+clueimage8 = ClueImage.create!(image: image2, clue: clue8)
