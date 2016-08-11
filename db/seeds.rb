@@ -18,7 +18,8 @@ clue8 = Clue.create!(hunt: hunt4, clue_number: 1, clue_points: 100, clue_content
 
 huntplayer1 = HuntPlayer.create!(player: user1, hunt: hunt1)
 huntplayer2 = HuntPlayer.create!(player: user2, hunt: hunt2)
-huntplayer3 = HuntPlayer.create!(player: user3, hunt: hunt3)
+huntplayer3 = HuntPlayer.create!(player: user3, hunt: hunt4)
+huntplayer4 = HuntPlayer.create!(player: user1, hunt: hunt4)
 
 image1 = Image.create!(hunt: hunt1, image_url: "link")
 image2 = Image.create!(hunt: hunt2, image_url: "another link")

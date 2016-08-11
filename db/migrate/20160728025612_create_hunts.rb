@@ -1,7 +1,7 @@
 class CreateHunts < ActiveRecord::Migration
   def change
     create_table :hunts do |t|
-      t.references :user, null: false
+      t.references :creator, :user, index: true
       t.integer :length_in_miles, null: false
       t.integer :area_in_miles, null: false
       t.string :prize_name

@@ -45,7 +45,8 @@ ActiveRecord::Schema.define(version: 20160728025749) do
   end
 
   create_table "hunts", force: :cascade do |t|
-    t.integer  "user_id",           null: false
+    t.integer  "creator_id"
+    t.integer  "user_id"
     t.integer  "length_in_miles",   null: false
     t.integer  "area_in_miles",     null: false
     t.string   "prize_name"
@@ -54,6 +55,9 @@ ActiveRecord::Schema.define(version: 20160728025749) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
+
+  add_index "hunts", ["creator_id"], name: "index_hunts_on_creator_id", using: :btree
+  add_index "hunts", ["user_id"], name: "index_hunts_on_user_id", using: :btree
 
   create_table "images", force: :cascade do |t|
     t.integer  "hunt_id"
